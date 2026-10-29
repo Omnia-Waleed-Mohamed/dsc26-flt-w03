@@ -1,4 +1,4 @@
-import '../data/services/api_failure.dart';
+import 'package:dsc26_flt_w03/data/services/api_failure.dart';
 
 /// The result of a data-layer call: a value or a typed failure.
 /// The data layer returns these instead of throwing.

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
-import 'app.dart';
+import 'presentation/app.dart';
 import 'data/repositories/practice_repository.dart';
 import 'data/services/question_api.dart';
 

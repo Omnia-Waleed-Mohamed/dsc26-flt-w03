@@ -1,7 +1,5 @@
-/// Everything that can go wrong when fetching practice questions.
-///
-/// [isTransient] failures may succeed if tried again later; the others will
-/// not, so they must not be retried.
+
+
 sealed class ApiFailure {
   const ApiFailure();
 
