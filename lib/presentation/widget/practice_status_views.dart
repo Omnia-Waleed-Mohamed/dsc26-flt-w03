@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../data/services/api_failure.dart';
 
 const _primary = Color(0xFF5946E8);
@@ -21,10 +22,7 @@ class LoadingView extends StatelessWidget {
             SizedBox(
               width: 34,
               height: 34,
-              child: CircularProgressIndicator(
-                strokeWidth: 3,
-                color: _primary,
-              ),
+              child: CircularProgressIndicator(strokeWidth: 3, color: _primary),
             ),
             SizedBox(height: 22),
             Text(
@@ -39,10 +37,7 @@ class LoadingView extends StatelessWidget {
             Text(
               'Just a moment while we prepare your practice session.',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: _mutedColor,
-                fontSize: 13,
-              ),
+              style: TextStyle(color: _mutedColor, fontSize: 13),
             ),
           ],
         ),
@@ -63,21 +58,13 @@ class LoadingIllustration extends StatelessWidget {
         color: Color(0xFFECE9FF),
         shape: BoxShape.circle,
       ),
-      child: const Icon(
-        Icons.auto_stories_rounded,
-        size: 76,
-        color: _primary,
-      ),
+      child: const Icon(Icons.auto_stories_rounded, size: 76, color: _primary),
     );
   }
 }
 
 class ErrorView extends StatelessWidget {
-  const ErrorView({
-    super.key,
-    required this.failure,
-    required this.onRetry,
-  });
+  const ErrorView({super.key, required this.failure, required this.onRetry});
 
   final Object failure;
   final VoidCallback onRetry;
@@ -128,7 +115,7 @@ class ErrorView extends StatelessWidget {
     if (failure is RateLimited) {
       final retryAfter = (failure as RateLimited).retryAfter;
 
-      if (retryAfter != null && retryAfter.inSeconds > 0) {
+      if (retryAfter.inSeconds > 0) {
         return 'Please wait ${retryAfter.inSeconds} seconds before trying again.';
       }
 
@@ -167,11 +154,7 @@ class ErrorView extends StatelessWidget {
                   color: Color(0xFFECE9FF),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
-                  _icon,
-                  size: 68,
-                  color: _primary,
-                ),
+                child: Icon(_icon, size: 68, color: _primary),
               ),
               const SizedBox(height: 26),
               Text(
@@ -199,9 +182,7 @@ class ErrorView extends StatelessWidget {
                 height: 52,
                 child: ElevatedButton.icon(
                   key: ValueKey(
-                    _isUnauthorized
-                        ? 'practice-signin'
-                        : 'practice-retry',
+                    _isUnauthorized ? 'practice-signin' : 'practice-retry',
                   ),
                   onPressed: _isUnauthorized
                       ? () {
@@ -219,9 +200,7 @@ class ErrorView extends StatelessWidget {
                         ? Icons.login_rounded
                         : Icons.refresh_rounded,
                   ),
-                  label: Text(
-                    _isUnauthorized ? 'Sign in' : 'Try again',
-                  ),
+                  label: Text(_isUnauthorized ? 'Sign in' : 'Try again'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _primary,
                     foregroundColor: Colors.white,
@@ -283,11 +262,7 @@ class EmptyView extends StatelessWidget {
               'There are no more questions available right now.\n'
               'Come back later for more practice.',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: _mutedColor,
-                fontSize: 14,
-                height: 1.9,
-              ),
+              style: TextStyle(color: _mutedColor, fontSize: 14, height: 1.9),
             ),
             const SizedBox(height: 28),
             SizedBox(
@@ -307,9 +282,7 @@ class EmptyView extends StatelessWidget {
                 label: const Text('Back'),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: _primary,
-                  side: const BorderSide(
-                    color: Color(0xFFD9D3FF),
-                  ),
+                  side: const BorderSide(color: Color(0xFFD9D3FF)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
